@@ -1,10 +1,13 @@
 import { Users, Target, Award, Globe } from "lucide-react";
+import Navigation from "@/components/Navigation";
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-background-secondary">
-      {/* Navigation Bar Placeholder */}
-      <div style={{ height: '80px' }}></div>
+    <>
+      <Navigation />
+      <div className="min-h-screen bg-background-secondary">
+        {/* Navigation Bar Placeholder */}
+        <div style={{ height: '80px' }}></div>
       
       <main className="main-content">
         <div className="container max-w-6xl mx-auto px-5">
@@ -86,6 +89,7 @@ export default function About() {
           </section>
         </div>
       </main>
-    </div>
+      </div>
+    </>
   );
 }

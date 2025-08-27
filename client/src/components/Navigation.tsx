@@ -1,12 +1,8 @@
 import { useState, useEffect } from "react";
-import { Users, User, Settings, LogOut, Home, Moon, Sun, Globe, LogIn } from "lucide-react";
+import { Users, User, Settings, LogOut, Globe, Sun, LogIn } from "lucide-react";
 import { Link } from "wouter";
 
-interface HeaderProps {
-  onDiscoverClick: () => void;
-}
-
-export default function Header({ onDiscoverClick }: HeaderProps) {
+export default function Navigation() {
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -154,32 +150,6 @@ export default function Header({ onDiscoverClick }: HeaderProps) {
           </div>
         </div>
       )}
-
-      {/* Hero Section with Background */}
-      <header className="header-with-bg pt-24 relative z-10">
-        <div className="header-bg-overlay"></div>
-        <div className="container max-w-6xl mx-auto px-5 relative z-20">
-          <div className="gdgoc-banner">
-            <h3>
-              <Users className="w-6 h-6" />
-              GDGoC FPTU HCMC Club
-            </h3>
-            <p>Google Developer Groups on Campus</p>
-          </div>
-          <h1 className="hero-title">Career Compass</h1>
-          <p className="hero-subtitle">
-            Discover your ideal career path with AI-powered guidance tailored for FPTU students
-          </p>
-          <button 
-            className="discover-btn relative z-10" 
-            onClick={onDiscoverClick}
-            data-testid="button-discover-path"
-          >
-            <i className="fas fa-compass mr-2"></i>
-            Discover Your Path
-          </button>
-        </div>
-      </header>
     </>
   );
 }

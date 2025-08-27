@@ -508,6 +508,15 @@ html {
   height: 80px;
   display: flex;
   align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.navbar-visible {
+  transform: translateY(0);
+}
+
+.navbar-hidden {
+  transform: translateY(-100%);
 }
 
 .navbar-brand {
@@ -850,4 +859,205 @@ html {
   .cta-card h2 {
     font-size: 1.5rem;
   }
+}
+
+/* Background Image with Blur Effect */
+.header-with-bg {
+  position: relative;
+  background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.header-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1;
+}
+
+/* Settings Modal Styles */
+.settings-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+.settings-content {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease;
+}
+
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 30px 0;
+  border-bottom: 1px solid #E8EAED;
+  margin-bottom: 0;
+  padding-bottom: 20px;
+}
+
+.settings-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.settings-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.settings-close:hover {
+  background: var(--background-secondary);
+  color: var(--text-primary);
+}
+
+.settings-body {
+  padding: 0 30px 30px;
+}
+
+.settings-section {
+  margin-bottom: 30px;
+}
+
+.settings-section h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 15px 0;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.settings-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.settings-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.settings-option:hover {
+  background: var(--background-secondary);
+}
+
+.settings-option input[type="radio"] {
+  margin: 0;
+  accent-color: var(--google-blue);
+}
+
+.settings-option span {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.settings-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.login-btn {
+  background: var(--google-blue);
+  color: white;
+}
+
+.login-btn:hover {
+  background: #1557b0;
+  transform: translateY(-1px);
+}
+
+.logout-btn {
+  background: var(--background-secondary);
+  color: var(--text-primary);
+  border: 1px solid #E8EAED;
+}
+
+.logout-btn:hover {
+  background: #f8f9fa;
+  border-color: #dadce0;
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Active Navigation Link */
+.navbar-link.active {
+  color: var(--google-blue);
+}
+
+.navbar-link.active::after {
+  width: 100%;
 }
