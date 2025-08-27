@@ -67,7 +67,7 @@ export default function Header({ onDiscoverClick }: HeaderProps) {
       </nav>
 
       {/* Hero Section */}
-      <header className="header">
+      <header className="header pt-24 relative z-10">
         <div className="container max-w-6xl mx-auto px-5">
           <div className="gdgoc-banner">
             <h3>
@@ -81,7 +81,7 @@ export default function Header({ onDiscoverClick }: HeaderProps) {
             Discover your ideal career path with AI-powered guidance tailored for FPTU students
           </p>
           <button 
-            className="discover-btn" 
+            className="discover-btn relative z-10" 
             onClick={onDiscoverClick}
             data-testid="button-discover-path"
           >

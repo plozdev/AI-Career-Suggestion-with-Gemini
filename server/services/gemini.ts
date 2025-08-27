@@ -81,7 +81,7 @@ export async function getMarketAnalysis(careerPath: string): Promise<any> {
     }`;
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-pro",
+      model: "gemini-2.5-flash",
       config: {
         responseMimeType: "application/json",
         responseSchema: {
