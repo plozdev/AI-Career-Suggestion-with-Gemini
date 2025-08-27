@@ -1,7 +1,9 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+// import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai"
 import dotenv from "dotenv"
 dotenv.config();
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
+// const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
 
 export async function getCareerAdvice(major: string, skills: string[], workEnvironment: string, motivation: string, coreInterest: string, problemSolving: string, personality: string): Promise<any> {
   try {
@@ -30,19 +32,24 @@ export async function getCareerAdvice(major: string, skills: string[], workEnvir
       "suggestedProject": "detailed project description with actionable steps"
     }`;
 
-    const model = genAI.getGenerativeModel({ 
-      model: "gemini-1.5-flash",
-      generationConfig: {
-        temperature: 0.7,
-        topK: 40,
-        topP: 0.95,
-        maxOutputTokens: 1024,
-      },
-    });
+    // const model = genAI.getGenerativeModel({ 
+    //   model: "gemini-1.5-flash",
+    //   generationConfig: {
+    //     temperature: 0.7,
+    //     topK: 40,
+    //     topP: 0.95,
+    //     maxOutputTokens: 1024,
+    //   },
+    // });
 
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const text = response.text();
+    // const result = await model.generateContent(prompt);
+    // const response = await result.response;
+    // const text = response.text();
+    const response = await ai.models.generateContent({
+      model: "gemini-2.5-flash",
+      contents: prompt,
+    });
+    const text = response.text;
 
     if (!text) {
       throw new Error("Empty response from Gemini API");
@@ -78,20 +85,25 @@ export async function getMarketAnalysis(careerPath: string): Promise<any> {
       "topCompanies": ["company 1", "company 2", "company 3", "company 4"]
     }`;
 
-    const model = genAI.getGenerativeModel({ 
-      model: "gemini-1.5-flash",
-      generationConfig: {
-        temperature: 0.7,
-        topK: 40,
-        topP: 0.95,
-        maxOutputTokens: 1024,
-      },
+    // const model = genAI.getGenerativeModel({ 
+    //   model: "gemini-1.5-flash",
+    //   generationConfig: {
+    //     temperature: 0.7,
+    //     topK: 40,
+    //     topP: 0.95,
+    //     maxOutputTokens: 1024,
+    //   },
+    // });
+
+    // const result = await model.generateContent(prompt);
+    // const response = await result.response;
+    // const text = response.text();
+
+    const response = await ai.models.generateContent({
+      model: "gemini-2.5-flash",
+      contents: prompt,
     });
-
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const text = response.text();
-
+    const text = response.text;
     if (!text) {
       throw new Error("Empty response from Gemini API");
     }
