@@ -161,17 +161,19 @@
 }
 
 .hero-title {
-  font-size: 3.5rem;
+  text-align: center;
+  font-size: 3.6rem;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-top: 45px;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
 .hero-subtitle {
-  font-size: 1.3rem;
+  text-align: center;
+  font-size: 1.2rem;
   margin-bottom: 40px;
   opacity: 0.9;
-  max-width: 600px;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -189,6 +191,13 @@
   box-shadow: var(--shadow-medium);
   text-transform: uppercase;
   letter-spacing: 1px;
+
+  /* can giua*/
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  z-index:10;
+  margin-top: 15rem;
 }
 
 .discover-btn:hover {
@@ -869,8 +878,9 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   min-height: 80vh;
+  align-items: center;
+  justify-content: center;
 }
-
 .header-bg-overlay {
   position: absolute;
   top: 0;

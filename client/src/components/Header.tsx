@@ -159,19 +159,19 @@ export default function Header({ onDiscoverClick }: HeaderProps) {
       <header className="header-with-bg pt-24 relative z-10">
         <div className="header-bg-overlay"></div>
         <div className="container max-w-6xl mx-auto px-5 relative z-20">
-          <div className="gdgoc-banner">
+          {/* <div className="gdgoc-banner absolute">
             <h3>
               <Users className="w-6 h-6" />
               GDGoC FPTU HCMC Club
             </h3>
             <p>Google Developer Groups on Campus</p>
-          </div>
+          </div> */}
           <h1 className="hero-title">Career Compass</h1>
           <p className="hero-subtitle">
             Discover your ideal career path with AI-powered guidance tailored for FPTU students
           </p>
           <button 
-            className="discover-btn relative z-10" 
+            className="discover-btn z-10" 
             onClick={onDiscoverClick}
             data-testid="button-discover-path"
           >
