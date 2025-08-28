@@ -171,7 +171,7 @@ export default function Header({ onDiscoverClick }: HeaderProps) {
             Discover your ideal career path with AI-powered guidance tailored for FPTU students
           </p>
           <button 
-            className="discover-btn z-10" 
+            className="discover-btn z-10" style={{marginTop:'15rem'}}
             onClick={onDiscoverClick}
             data-testid="button-discover-path"
           >
