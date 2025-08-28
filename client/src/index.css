@@ -864,11 +864,11 @@ html {
 /* Background Image with Blur Effect */
 .header-with-bg {
   position: relative;
-  background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80');
+  background-image: url('../../public/bkg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh;
+  min-height: 80vh;
 }
 
 .header-bg-overlay {
@@ -877,8 +877,8 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 1;
 }

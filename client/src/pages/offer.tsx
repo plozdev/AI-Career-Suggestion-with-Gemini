@@ -2,6 +2,12 @@ import { Code, Users, Trophy, BookOpen, Briefcase, Star } from "lucide-react";
 import Navigation from "@/components/Navigation";
 
 export default function Offer() {
+
+  const handleJoinNowClick = () => {
+    // Redirect to GDGoC FPTU HCMC community page
+    window.open('https://forms.gle/x11FFTiq5Dd4Ymyt8', '_blank');
+  };
+
   return (
     <>
       <Navigation />
@@ -141,7 +147,10 @@ export default function Offer() {
               <div className="cta-card">
                 <h2>Ready to Join Our Tech Community?</h2>
                 <p>Don't miss out on these amazing opportunities to grow your tech career!</p>
-                <button className="discover-btn" data-testid="join-now-button">
+                <button 
+                  className="discover-btn" 
+                  onClick={handleJoinNowClick}
+                  data-testid="join-now-button">
                   <i className="fas fa-rocket mr-2"></i>
                   Join Now - It's Free!
                 </button>

@@ -5,16 +5,40 @@ export default function Footer() {
         <p><strong>GDGoC FPTU HCMC</strong> - Empowering students through technology</p>
         <p>Join our community of developers, designers, and innovators!</p>
         <div className="social-links">
-          <a href="#" aria-label="Facebook" data-testid="link-facebook">
+          <a 
+            href="https://www.facebook.com/gdg.fptu.hcmc" 
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook" 
+            data-testid="link-facebook"
+          >
             <i className="fab fa-facebook"></i>
           </a>
-          <a href="#" aria-label="Instagram" data-testid="link-instagram">
-            <i className="fab fa-instagram"></i>
+          <a 
+            href="https://gdg.community.dev/gdg-on-campus-fpt-university-ho-chi-minh-city-vietnam/" 
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GDG Community" 
+            data-testid="link-gdg"
+          >
+            <i className="fab fa-google"></i>
           </a>
-          <a href="#" aria-label="LinkedIn" data-testid="link-linkedin">
+          <a 
+            href="https://www.linkedin.com/company/gdg-fptu-hcmc/posts/?feedView=all&viewAsMember=true" 
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn" 
+            data-testid="link-linkedin"
+          >
             <i className="fab fa-linkedin"></i>
           </a>
-          <a href="#" aria-label="GitHub" data-testid="link-github">
+          <a 
+            href="https://github.com/gdgocfptuhcmc" 
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub" 
+            data-testid="link-github"
+          >
             <i className="fab fa-github"></i>
           </a>
         </div>

@@ -38,7 +38,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4>Email</h4>
-                      <p>gdgoc.fptu.hcmc@gmail.com</p>
+                      <p>gdsc.fpt.hcm23@gmail.com</p>
                       <p className="contact-note">We respond within 24 hours</p>
                     </div>
                   </div>
@@ -169,13 +169,12 @@ export default function Contact() {
                           required
                         />
                       </div>
-
                       <button
                         type="submit"
                         className="submit-btn"
                         data-testid="button-send-message"
                       >
-                        <Send className="w-4 h-4 mr-2" />
+                        
                         Send Message
                       </button>
                     </form>
