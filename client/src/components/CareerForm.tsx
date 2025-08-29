@@ -10,7 +10,7 @@ interface CareerFormProps {
 
 const MAJORS = [
   "Information Technology",
-  "Software Engineering", 
+  // "Software Engineering", 
   "Business Administration",
   "Marketing",
   "Graphic Design",
@@ -86,19 +86,19 @@ const MAJOR_SKILLS_MAPPING: Record<string, string[]> = {
     "Documentation",
     "Process Improvement"
   ],
-  "Software Engineering": [
-    "Web Programming",
-    "Mobile Development",
-    "Database Management",
-    "System Administration",
-    "Problem Solving",
-    "Quality Assurance",
-    "Project Management",
-    "Documentation",
-    "Process Improvement",
-    "Team Leadership",
-    "Strategic Planning"
-  ],
+  // "Software Engineering": [
+  //   "Web Programming",
+  //   "Mobile Development",
+  //   "Database Management",
+  //   "System Administration",
+  //   "Problem Solving",
+  //   "Quality Assurance",
+  //   "Project Management",
+  //   "Documentation",
+  //   "Process Improvement",
+  //   "Team Leadership",
+  //   "Strategic Planning"
+  // ],
   "Business Administration": [
     "Strategic Planning",
     "Project Management",
@@ -376,8 +376,29 @@ export default function CareerForm({ onSuccess }: CareerFormProps) {
 
   const careerMutation = useMutation({
     mutationFn: async (data: CareerAssessment) => {
-      const response = await apiRequest("POST", "/api/career-advice", data);
-      return response.json();
+      const response = await apiRequest("/api/career-advice", {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+      
+      // Handle different API response formats
+      if (response.advice) {
+        // Try to parse JSON from advice string
+        try {
+          const jsonMatch = response.advice.match(/```json\n([\s\S]*?)\n```/);
+          if (jsonMatch) {
+            const parsedAdvice = JSON.parse(jsonMatch[1]);
+            return parsedAdvice;
+          }
+        } catch (e) {
+          console.log('Could not parse JSON from advice, using raw text');
+        }
+        
+        // Return raw advice if parsing fails
+        return { rawAdvice: response.advice };
+      }
+      
+      return response;
     },
     onSuccess: (data) => {
       onSuccess(data);

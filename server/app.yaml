@@ -1,0 +1,18 @@
+runtime: nodejs22
+env: standard
+
+instance_class: F1
+automatic_scaling:
+  min_instances: 0
+  max_instances: 3
+
+env_variables:
+  NODE_ENV: production
+  GEMINI_API_KEY: 'AIzaSyBlcIaAJt1fsWjp_mZuV77gnEq06BhPPuw'
+  PORT: 8080
+
+entrypoint: node server.js
+
+handlers:
+- url: /.*
+  script: auto
