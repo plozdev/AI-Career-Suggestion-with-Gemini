@@ -8,7 +8,7 @@ automatic_scaling:
 
 env_variables:
   NODE_ENV: production
-  GEMINI_API_KEY: 'AIzaSyBlcIaAJt1fsWjp_mZuV77gnEq06BhPPuw'
+  # GEMINI_API_KEY will be set via gcloud deployment
   PORT: 8080
 
 entrypoint: node server.js

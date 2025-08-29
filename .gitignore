@@ -5,5 +5,13 @@ server/public
 vite.config.ts.*
 *.tar.gz
 .env
+.env.local
+.env.production
+.env.development
 .local
 attached_assets
+
+# API Keys and sensitive data
+server/app.yaml
+*.pem
+*.key
