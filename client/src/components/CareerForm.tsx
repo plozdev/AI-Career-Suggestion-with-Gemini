@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import CareerLoadingDialog from "@/components/CareerLoadingDialog";
 import type { CareerAssessment, CareerAdvice } from "@shared/schema";
 
 interface CareerFormProps {
@@ -372,6 +373,7 @@ export default function CareerForm({ onSuccess }: CareerFormProps) {
   const [coreInterest, setCoreInterest] = useState("");
   const [problemSolving, setProblemSolving] = useState("");
   const [personality, setPersonality] = useState("");
+  const [showLoadingDialog, setShowLoadingDialog] = useState(false);
   const { toast } = useToast();
 
   const careerMutation = useMutation({
@@ -400,10 +402,18 @@ export default function CareerForm({ onSuccess }: CareerFormProps) {
       
       return response;
     },
+    onMutate: () => {
+      // Show loading dialog when mutation starts
+      setShowLoadingDialog(true);
+    },
     onSuccess: (data) => {
+      // Hide loading dialog and show results
+      setShowLoadingDialog(false);
       onSuccess(data);
     },
     onError: (error) => {
+      // Hide loading dialog on error
+      setShowLoadingDialog(false);
       toast({
         title: "Error",
         description: error instanceof Error ? error.message : "Failed to get career advice",
@@ -653,6 +663,12 @@ export default function CareerForm({ onSuccess }: CareerFormProps) {
           </button>
         </form>
       </div>
+
+      {/* Loading Dialog */}
+      <CareerLoadingDialog 
+        isOpen={showLoadingDialog}
+        onOpenChange={setShowLoadingDialog}
+      />
     </section>
   );
 }

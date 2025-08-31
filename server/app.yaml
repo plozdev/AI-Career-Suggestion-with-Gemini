@@ -8,7 +8,8 @@ automatic_scaling:
 
 env_variables:
   NODE_ENV: production
-  GEMINI_API_KEY: 'AIzaSyBlcIaAJt1fsWjp_mZuV77gnEq06BhPPuw'
+  # GEMINI_API_KEY: 'AIzaSyBlcIaAJt1fsWjp_mZuV77gnEq06BhPPuw' //suspended
+  GEMINI_API_KEY: 'AIzaSyA8hyc5ggRnxokj-oaCIdZhMGmK7r-aWdg'
   PORT: 8080
 
 entrypoint: node server.js
