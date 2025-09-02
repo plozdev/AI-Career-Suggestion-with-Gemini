@@ -33,14 +33,8 @@ export default function Header({ onDiscoverClick }: HeaderProps) {
     <>
       {/* Navigation Bar */}
       <nav className={`navbar ${isHeaderVisible ? 'navbar-visible' : 'navbar-hidden'}`}>
-        <div className="container max-w-6xl mx-auto px-5 flex justify-between items-center">
-          {/* Logo and Brand */}
-          <Link href="/" className="navbar-brand">
-            <Users className="w-6 h-6" />
-            <span>GDGoC FPTU</span>
-          </Link>
-
-          {/* Navigation Menu */}
+        <div className="container max-w-6xl mx-auto px-5 flex justify-center items-center relative">
+          {/* Navigation Menu - Centered */}
           <div className="navbar-menu">
             <Link href="/" className="navbar-link" data-testid="nav-home">
               Home
@@ -56,8 +50,8 @@ export default function Header({ onDiscoverClick }: HeaderProps) {
             </Link>
           </div>
 
-          {/* Profile Dropdown */}
-          <div className="profile-dropdown">
+          {/* Profile Dropdown - Absolute Right */}
+          <div className="profile-dropdown" style={{position:'absolute' ,right: '0'}} >
             <button
               className="profile-btn"
               onClick={() => setIsProfileDropdownOpen(!isProfileDropdownOpen)}

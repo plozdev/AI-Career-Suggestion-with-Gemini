@@ -24,6 +24,7 @@ const ALL_SKILLS = [
   // Technical Skills
   "Web Programming",
   "Mobile Development", 
+  "Game Development",
   "Data Analysis",
   "UI/UX Design",
   "Machine Learning",
@@ -76,6 +77,7 @@ const MAJOR_SKILLS_MAPPING: Record<string, string[]> = {
   "Information Technology": [
     "Web Programming",
     "Mobile Development",
+    "Game Development",
     "Database Management",
     "System Administration",
     "Cybersecurity",
