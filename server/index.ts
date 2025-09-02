@@ -12,7 +12,8 @@ const corsOptions = {
   origin: [
     'http://localhost:5173',
     'http://localhost:3000', 
-    'https://plozdev.github.io' // GitHub Pages domain
+    'https://plozdev.github.io', // GitHub Pages domain
+    'https://plozdev.github.io/AI-Career-Suggestion-with-Gemini' // GitHub Pages với repo path
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],

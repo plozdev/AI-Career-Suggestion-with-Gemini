@@ -43,7 +43,7 @@ export default function Footer() {
           </a>
         </div>
         <p style={{ marginTop: '20px', opacity: '0.8' }}>
-          © 2024 GDGoC FPTU HCMC. All rights reserved.
+          © 2025 GDGoC FPTU HCMC. All rights reserved.
         </p>
       </div>
     </footer>

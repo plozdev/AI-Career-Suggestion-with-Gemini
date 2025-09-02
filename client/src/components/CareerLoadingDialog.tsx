@@ -49,23 +49,29 @@ export default function CareerLoadingDialog({
       return;
     }
 
-    // Cycle through messages
-    const messageInterval = setInterval(() => {
-      setCurrentMessageIndex((prev) => 
-        prev < LOADING_MESSAGES.length - 1 ? prev + 1 : prev
-      );
-    }, 2500);
+    const startTime = Date.now();
+    const duration = 5000; // Exactly 5 seconds
 
-    // Smooth progress animation
+    // Update progress every 50ms for smooth animation
     const progressInterval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 95) return prev; // Don't reach 100% until actually done
-        return prev + Math.random() * 3 + 1; // Random increments
-      });
-    }, 200);
+      const elapsed = Date.now() - startTime;
+      const newProgress = Math.min((elapsed / duration) * 100, 100);
+      setProgress(newProgress);
+
+      // Update message based on progress
+      const messageIndex = Math.min(
+        Math.floor((elapsed / duration) * LOADING_MESSAGES.length),
+        LOADING_MESSAGES.length - 1
+      );
+      setCurrentMessageIndex(messageIndex);
+
+      // Clear interval when we reach 100%
+      if (newProgress >= 100) {
+        clearInterval(progressInterval);
+      }
+    }, 50);
 
     return () => {
-      clearInterval(messageInterval);
       clearInterval(progressInterval);
     };
   }, [isOpen]);
@@ -103,13 +109,13 @@ export default function CareerLoadingDialog({
         <div className="space-y-3">
           <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
             <div 
-              className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-300 ease-out progress-bar-animated"
-              style={{ width: `${Math.min(progress, 95)}%` }}
+              className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-100 ease-out progress-bar-animated"
+              style={{ width: `${Math.round(progress)}%` }}
             />
           </div>
           
           <p className="text-sm text-gray-500 text-center">
-            {Math.min(Math.round(progress), 95)}% Complete
+            {Math.round(progress)}% Complete
           </p>
         </div>
 

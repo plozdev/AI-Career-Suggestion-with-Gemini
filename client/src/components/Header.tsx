@@ -37,7 +37,7 @@ export default function Header({ onDiscoverClick }: HeaderProps) {
           {/* Logo and Brand */}
           <Link href="/" className="navbar-brand">
             <Users className="w-6 h-6" />
-            <span>Career Compass</span>
+            <span>GDGoC FPTU</span>
           </Link>
 
           {/* Navigation Menu */}
@@ -155,29 +155,10 @@ export default function Header({ onDiscoverClick }: HeaderProps) {
         </div>
       )}
 
-      {/* Hero Section with Background */}
-      <header className="header-with-bg pt-24 relative z-10">
-        <div className="header-bg-overlay"></div>
-        <div className="container max-w-6xl mx-auto px-5 relative z-20">
-          {/* <div className="gdgoc-banner absolute">
-            <h3>
-              <Users className="w-6 h-6" />
-              GDGoC FPTU HCMC Club
-            </h3>
-            <p>Google Developer Groups on Campus</p>
-          </div> */}
-          <h1 className="hero-title">Career Compass</h1>
-          <p className="hero-subtitle">
-            Discover your ideal career path with AI-powered guidance tailored for FPTU students
-          </p>
-          <button 
-            className="discover-btn z-10" style={{marginTop:'15rem'}}
-            onClick={onDiscoverClick}
-            data-testid="button-discover-path"
-          >
-            <i className="fas fa-compass mr-2"></i>
-            Discover Your Path
-          </button>
+      {/* Hero Section with Google-inspired Layout */}
+      <header className="header-google-style">
+        <div className="google-hero-container">
+
         </div>
       </header>
     </>
