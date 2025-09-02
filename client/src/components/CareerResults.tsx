@@ -107,7 +107,7 @@ export default function CareerResults({ advice, isLoading, onAnalyzeMarket }: Ca
             </div>
           ) : null}
         </div>
-        {true && advice && !isLoading && (
+        {false && advice && !isLoading && ( //Hiding market analysis 
           <button 
             className="analyze-btn" 
             onClick={onAnalyzeMarket}
