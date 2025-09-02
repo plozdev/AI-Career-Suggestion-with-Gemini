@@ -9,7 +9,7 @@ export async function getCareerAdviceFromGemini(data: any) {
   try {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    const prompt = `You are an AI career advisor. Based on the comprehensive profile below, suggest a suitable career path:
+    const prompt = `You are an AI career advisor. Based on the comprehensive profile below, suggest EXACTLY 4 career paths that best match this person:
 
     STUDENT PROFILE:
     - Major: ${data.major}
@@ -20,10 +20,14 @@ export async function getCareerAdviceFromGemini(data: any) {
     - Problem-Solving Style: ${data.problemSolving}
     - Personality Type: ${data.personality}
 
-    Please provide:
-    1. A specific career path recommendation that aligns with their profile
-    2. 2-3 compelling reasons why this career fits them perfectly
-    3. A practical personal project they can start to develop relevant skills
+    IMPORTANT: You must provide EXACTLY 4 career recommendations ranked from best to good fit.
+
+    For each career path, provide:
+    1. A specific career title that aligns with their profile
+    2. Compelling reasons why this career fits them
+    3. Required skills to succeed in this field
+    4. Practical next steps to pursue this career
+    5. Career outlook and growth potential
 
     Answer in a concise, friendly, encouraging tone using English.
 
@@ -31,15 +35,35 @@ export async function getCareerAdviceFromGemini(data: any) {
     {
       "careerPaths": [
         {
-          "title": "specific career title",
-          "description": "why this career fits the person",
-          "requiredSkills": ["skill1", "skill2", "skill3", "skill4"],
-          "nextSteps": ["step1", "step2", "step3"],
-          "outlook": "career outlook and growth potential"
+          "title": "Best Match Career Title",
+          "description": "detailed explanation of why this career perfectly fits the person based on their profile",
+          "requiredSkills": ["skill1", "skill2", "skill3", "skill4", "skill5"],
+          "nextSteps": ["actionable step1", "actionable step2", "actionable step3"],
+          "outlook": "comprehensive career outlook, growth potential, and market demand"
+        },
+        {
+          "title": "Second Choice Career Title",
+          "description": "detailed explanation of why this career is a good fit for the person",
+          "requiredSkills": ["skill1", "skill2", "skill3", "skill4", "skill5"],
+          "nextSteps": ["actionable step1", "actionable step2", "actionable step3"],
+          "outlook": "comprehensive career outlook, growth potential, and market demand"
+        },
+        {
+          "title": "Third Option Career Title",
+          "description": "detailed explanation of why this career could work for the person",
+          "requiredSkills": ["skill1", "skill2", "skill3", "skill4", "skill5"],
+          "nextSteps": ["actionable step1", "actionable step2", "actionable step3"],
+          "outlook": "comprehensive career outlook, growth potential, and market demand"
+        },
+        {
+          "title": "Fourth Choice Career Title",
+          "description": "detailed explanation of why this career is a good fit for the person",
+          "requiredSkills": ["skill1", "skill2", "skill3", "skill4", "skill5"],
+          "nextSteps": ["actionable step1", "actionable step2", "actionable step3"],
+          "outlook": "comprehensive career outlook, growth potential, and market demand"
         }
       ],
-      "generalAdvice": "overall advice and encouragement",
-      "suggestedProject": "detailed project description with actionable steps"
+      "generalAdvice": "overall career advice, development tips, and encouragement tailored to their profile"
     }`;
 
     const result = await model.generateContent(prompt);

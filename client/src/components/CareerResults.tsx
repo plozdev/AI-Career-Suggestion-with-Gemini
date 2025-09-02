@@ -31,41 +31,46 @@ export default function CareerResults({ advice, isLoading, onAnalyzeMarket }: Ca
               {advice.careerPaths ? (
                 // New API format with careerPaths array
                 <div>
-                  <h4>🎯 Career Recommendations</h4>
-                  {advice.careerPaths.map((career: any, index: number) => (
-                    <div key={index} style={{ marginBottom: '20px', padding: '15px', border: '1px solid #e0e0e0', borderRadius: '8px' }}>
-                      <h5 style={{ color: 'var(--google-blue)', marginBottom: '8px' }}>
-                        {career.title}
-                      </h5>
-                      <p style={{ marginBottom: '10px' }}>{career.description}</p>
-                      
-                      <div style={{ marginBottom: '8px' }}>
-                        <strong>Required Skills:</strong>
-                        <ul style={{ margin: '5px 0', paddingLeft: '20px' }}>
-                          {(career.requiredSkills || []).map((skill: string, skillIndex: number) => (
-                            <li key={skillIndex}>{skill}</li>
-                          ))}
-                        </ul>
+                  <h4>🎯 Top 4 Career Recommendations</h4>
+                  <div className="career-recommendations-grid">
+                    {advice.careerPaths.slice(0, 4).map((career: any, index: number) => (
+                      <div key={index} className="career-recommendation-card">
+                        <div className="career-rank">#{index + 1}</div>
+                        <h5 className="career-title">
+                          {career.title}
+                        </h5>
+                        <p className="career-description">{career.description}</p>
+                        
+                        <div className="career-details">
+                          <div className="detail-section">
+                            <strong>💼 Required Skills:</strong>
+                            <ul className="skills-list">
+                              {(career.requiredSkills || []).slice(0, 5).map((skill: string, skillIndex: number) => (
+                                <li key={skillIndex}>{skill}</li>
+                              ))}
+                            </ul>
+                          </div>
+                          
+                          <div className="detail-section">
+                            <strong>🚀 Next Steps:</strong>
+                            <ul className="steps-list">
+                              {(career.nextSteps || []).slice(0, 3).map((step: string, stepIndex: number) => (
+                                <li key={stepIndex}>{step}</li>
+                              ))}
+                            </ul>
+                          </div>
+                          
+                          <div className="career-outlook">
+                            <strong>📈 Outlook:</strong> <span>{career.outlook}</span>
+                          </div>
+                        </div>
                       </div>
-                      
-                      <div style={{ marginBottom: '8px' }}>
-                        <strong>Next Steps:</strong>
-                        <ul style={{ margin: '5px 0', paddingLeft: '20px' }}>
-                          {(career.nextSteps || []).map((step: string, stepIndex: number) => (
-                            <li key={stepIndex}>{step}</li>
-                          ))}
-                        </ul>
-                      </div>
-                      
-                      <div>
-                        <strong>Outlook:</strong> {career.outlook}
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                   
                   {advice.generalAdvice && (
-                    <div style={{ marginTop: '20px', padding: '15px', backgroundColor: '#f8f9fa', borderRadius: '8px' }}>
-                      <h5>💡 General Advice</h5>
+                    <div className="general-advice-section">
+                      <h5>💡 General Career Advice</h5>
                       <p>{advice.generalAdvice}</p>
                     </div>
                   )}

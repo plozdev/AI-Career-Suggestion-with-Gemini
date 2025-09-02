@@ -18,7 +18,7 @@ export default function Home() {
 
   const marketMutation = useMutation({
     mutationFn: async (careerPath: string) => {
-      const response = await apiRequest("POST", "/api/market-analysis", { careerPath });
+      const response = await apiRequest("POST", "/api/market-analysis",{ careerPath } );
       return response.json();
     },
     onSuccess: (data) => {

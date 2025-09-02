@@ -50,7 +50,7 @@ export default function CareerLoadingDialog({
     }
 
     const startTime = Date.now();
-    const duration = 5000; // Exactly 5 seconds
+    const duration = 6000; // Exactly 6 seconds
 
     // Update progress every 50ms for smooth animation
     const progressInterval = setInterval(() => {
