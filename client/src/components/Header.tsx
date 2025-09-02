@@ -33,7 +33,23 @@ export default function Header({ onDiscoverClick }: HeaderProps) {
     <>
       {/* Navigation Bar */}
       <nav className={`navbar ${isHeaderVisible ? 'navbar-visible' : 'navbar-hidden'}`}>
-        <div className="container max-w-6xl mx-auto px-5 flex justify-center items-center relative">
+        <div className="container max-w-6xl mx-auto px-5 flex justify-between items-center relative">
+          {/* Logo - Left Side */}
+          <Link href="/" className="navbar-brand">
+            <div className="flex items-center gap-3">
+              <img 
+                src="/logo.jpg" 
+                alt="GDGoC FPTU Logo" 
+                className="w-10 h-10 rounded-full object-cover"
+                onError={(e) => {
+                  // Fallback to icon if image fails to load
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                }}
+              />
+            </div>
+          </Link>
+          
           {/* Navigation Menu - Centered */}
           <div className="navbar-menu">
             <Link href="/" className="navbar-link" data-testid="nav-home">
@@ -50,8 +66,8 @@ export default function Header({ onDiscoverClick }: HeaderProps) {
             </Link>
           </div>
 
-          {/* Profile Dropdown - Absolute Right */}
-          <div className="profile-dropdown" style={{position:'absolute' ,right: '0'}} >
+          {/* Profile Dropdown - Right Side */}
+          <div className="profile-dropdown">
             <button
               className="profile-btn"
               onClick={() => setIsProfileDropdownOpen(!isProfileDropdownOpen)}

@@ -456,6 +456,9 @@ html {
   display: flex;
   align-items: center;
   gap: 40px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .navbar-link {
@@ -727,7 +730,13 @@ html {
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .navbar-menu {
+    position: static;
+    transform: none;
     gap: 20px;
+  }
+  
+  .navbar-brand span {
+    display: none;
   }
   
   .navbar-link {
